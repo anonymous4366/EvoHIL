@@ -28,40 +28,61 @@
   </header>
 
   <main>
-    <section class="section" id="teaser">
+    <section class="section opening-section" id="representative-results">
       <div class="container narrow centered">
-        <h2>Teaser</h2>
-        <div class="video-wrap">
-          <video class="feature-video" autoplay controls muted loop playsinline preload="metadata" poster="assets/posters/push_compare_after.jpg" aria-label="EvoHIL pushing with a smooth overlaid trajectory">
-            <source src="assets/videos/push_compare_after.mp4" type="video/mp4">
-          </video>
-          <span class="speed-badge">3× speed</span>
+        <div class="section-heading">
+          <span class="section-kicker">Representative deployments</span>
+          <h2>Real-Robot Performance</h2>
+          <p>EvoHIL produces smooth, coherent behavior across both short-horizon pushing and long-horizon stowing. The paired rollouts below are displayed concurrently at 3× speed.</p>
         </div>
-        <p class="lead">EvoHIL turns human feedback into a self-evolving learning loop. The reward classifier adapts as the scene changes, the flow-matching policy generates coherent action chunks, and retention-aware fine-tuning improves visual robustness without additional robot interaction.</p>
+        <div class="opening-showcase">
+          <figure class="showcase-item">
+            <div class="video-wrap">
+              <video class="feature-video" data-sync-group="opening" autoplay controls muted loop playsinline preload="metadata" poster="assets/posters/push_compare_after.jpg" aria-label="EvoHIL candy pushing with a smooth overlaid trajectory">
+                <source src="assets/videos/push_compare_after.mp4" type="video/mp4">
+              </video>
+              <span class="speed-badge">3× speed</span>
+            </div>
+            <figcaption><span>SO-101</span><strong>Candy Pushing</strong></figcaption>
+          </figure>
+          <figure class="showcase-item">
+            <div class="video-wrap">
+              <video class="feature-video" data-sync-group="opening" autoplay controls muted loop playsinline preload="metadata" poster="assets/posters/stow_compare_after.jpg" aria-label="EvoHIL medicine-box stowing with a smooth overlaid trajectory">
+                <source src="assets/videos/stow_compare_after.mp4" type="video/mp4">
+              </video>
+              <span class="speed-badge">3× speed</span>
+            </div>
+            <figcaption><span>SO-101</span><strong>Medicine-Box Stowing</strong></figcaption>
+          </figure>
+        </div>
+        <p class="lead">Human feedback drives a self-evolving learning loop: the reward classifier adapts as the scene changes, the flow-matching policy generates coherent action chunks, and retention-aware fine-tuning improves visual robustness without additional robot interaction.</p>
       </div>
     </section>
 
     <section class="section section-tint" id="overview">
       <div class="container narrow">
-        <h2 class="centered">Overview</h2>
-        <p>Human-in-the-loop reinforcement learning is effective for contact-rich manipulation, but three interfaces commonly remain fixed after deployment: the visual reward model, the step-wise action generator, and the policy's visual training domain. A change in lighting can corrupt success labels, destabilize control, and sharply reduce task success.</p>
+        <div class="section-heading centered">
+          <span class="section-kicker">Method</span>
+          <h2>Overview</h2>
+          <p>Human-in-the-loop reinforcement learning is effective for contact-rich manipulation, but three interfaces commonly remain fixed after deployment: the visual reward model, the step-wise action generator, and the policy's visual training domain. A change in lighting can corrupt success labels, destabilize control, and sharply reduce task success.</p>
+        </div>
         <figure class="research-figure">
           <img src="assets/images/method.png" alt="EvoHIL system overview with self-evolving reward, action flow stabilization, and retention-aware fine-tuning">
           <figcaption><b>System overview.</b> EvoHIL assigns a dedicated adaptation mechanism to each interface while coupling them through a common actor–critic workflow.</figcaption>
         </figure>
         <div class="method-columns">
           <article>
-            <span class="method-index">1</span>
+            <span class="method-index">01</span>
             <h3>Self-Evolving Reward</h3>
             <p>Human-confirmed positives and conservative weak negatives update the deployed success classifier with label-source isolation and gated EMA deployment.</p>
           </article>
           <article>
-            <span class="method-index">2</span>
+            <span class="method-index">02</span>
             <h3>Action Flow Stabilization</h3>
             <p>A flow-matching actor generates short, coherent action chunks. An execution-prefix critic evaluates only the portion that reaches the robot.</p>
           </article>
           <article>
-            <span class="method-index">3</span>
+            <span class="method-index">03</span>
             <h3>Retention-Aware Adaptation</h3>
             <p>Relit replay expands visual coverage, while frozen actor and critic references preserve previously mastered behavior.</p>
           </article>
@@ -71,8 +92,11 @@
 
     <section class="section" id="platforms">
       <div class="container narrow centered">
-        <h2>Two Robots, Six Tasks</h2>
-        <p class="section-intro">We evaluate precision insertion, surface manipulation, contact operation, pushing, and long-horizon stowing on a Franka FR3 and a low-cost SO-101 arm.</p>
+        <div class="section-heading">
+          <span class="section-kicker">Evaluation suite</span>
+          <h2>Two Robots, Six Tasks</h2>
+          <p>We evaluate precision insertion, surface manipulation, contact operation, pushing, and long-horizon stowing on a Franka FR3 and a low-cost SO-101 arm.</p>
+        </div>
         <figure class="research-figure wide-figure">
           <img src="assets/images/tasks.png" alt="Six real-robot manipulation tasks on Franka FR3 and SO-101 robots" loading="lazy">
           <figcaption>RAM insertion, USB insertion, circuit-breaker operation, table wiping, candy pushing, and medicine-box stowing.</figcaption>
@@ -82,37 +106,49 @@
 
     <section class="section section-tint" id="results">
       <div class="container narrow centered">
-        <h2>Robustness under Illumination Shift</h2>
-        <p class="section-intro">Ten ordered lighting conditions vary brightness, color temperature, shadow, and reflection. At the primary 60% composite shift, EvoHIL records the strongest selected-policy success rate on every task.</p>
+        <div class="section-heading">
+          <span class="section-kicker">Robustness analysis</span>
+          <h2>Robustness under Illumination Shift</h2>
+          <p>Ten ordered conditions vary brightness, color temperature, shadow, and reflection. At the primary 60% composite shift, EvoHIL improves the six-task mean success rate from 29% to 89%: an absolute gain of 60 percentage points and approximately 3.1× the HIL-SERL success rate.</p>
+        </div>
         <div class="stat-row" aria-label="Key results">
-          <div><strong>89%</strong><span>mean success across six tasks</span></div>
-          <div><strong>29%</strong><span>HIL-SERL mean success</span></div>
-          <div><strong>100%</strong><span>USB success through 90% shift</span></div>
+          <div><strong>89%</strong><span>EvoHIL mean success at 60% shift</span></div>
+          <div><strong>+60 pp</strong><span>absolute gain over HIL-SERL</span></div>
+          <div><strong>≈3.1×</strong><span>relative success rate at 60% shift</span></div>
         </div>
         <figure class="research-figure wide-figure">
           <img src="assets/images/illumination-sweep.png" alt="Success, intervention, and duration results over the illumination-shift sweep" loading="lazy">
-          <figcaption><b>Illumination-shift sweep.</b> Each point summarizes 30 rollouts of one selected policy. The shift index is composite rather than a calibrated lux change.</figcaption>
+          <figcaption><b>Illumination-shift sweep.</b> Each curve point summarizes 30 rollouts of one selected policy. The shift index jointly varies several visual factors and is not a calibrated lux change.</figcaption>
         </figure>
         <div class="table-wrap">
+          <div class="table-heading">
+            <div><span>Table IV</span><strong>Selected-policy success at 60% composite illumination shift</strong></div>
+            <p>Success rate (%)</p>
+          </div>
           <table>
-            <thead><tr><th>Task</th><th>Robot</th><th>HIL-SERL</th><th>EvoHIL</th></tr></thead>
+            <thead><tr><th>Task</th><th>Robot</th><th>HIL-SERL</th><th>EvoHIL</th><th>Gain</th></tr></thead>
             <tbody>
-              <tr><td>USB insertion</td><td>FR3</td><td>50%</td><td><b>100%</b></td></tr>
-              <tr><td>RAM insertion</td><td>FR3</td><td>43%</td><td><b>100%</b></td></tr>
-              <tr><td>Table wiping</td><td>FR3</td><td>33%</td><td><b>87%</b></td></tr>
-              <tr><td>Circuit breaker</td><td>FR3</td><td>13%</td><td><b>83%</b></td></tr>
-              <tr><td>Candy push</td><td>SO-101</td><td>20%</td><td><b>93%</b></td></tr>
-              <tr><td>Medicine-box stow</td><td>SO-101</td><td>15%</td><td><b>73%</b></td></tr>
+              <tr><td>USB insertion</td><td>FR3</td><td>50%</td><td><b>100%</b></td><td class="gain">+50 pp</td></tr>
+              <tr><td>RAM insertion</td><td>FR3</td><td>43%</td><td><b>100%</b></td><td class="gain">+57 pp</td></tr>
+              <tr><td>Table wiping</td><td>FR3</td><td>33%</td><td><b>87%</b></td><td class="gain">+54 pp</td></tr>
+              <tr><td>Circuit breaker</td><td>FR3</td><td>13%</td><td><b>83%</b></td><td class="gain">+70 pp</td></tr>
+              <tr><td>Candy push</td><td>SO-101</td><td>20%</td><td><b>93%</b></td><td class="gain">+73 pp</td></tr>
+              <tr><td>Medicine-box stow</td><td>SO-101</td><td>15%</td><td><b>73%</b></td><td class="gain">+58 pp</td></tr>
+              <tr class="mean-row"><td>Mean</td><td>—</td><td>29%</td><td><b>89%</b></td><td class="gain">+60 pp</td></tr>
             </tbody>
           </table>
+          <p class="table-note"><b>Evaluation protocol.</b> For a fair comparison, every method–task entry in Table IV is averaged over 60 evaluation trials. The gain column reports the absolute difference in percentage points (pp).</p>
         </div>
       </div>
     </section>
 
     <section class="section" id="motion">
       <div class="container narrow centered">
-        <h2>Action Smoothness</h2>
-        <p class="section-intro">HIL-SERL samples commands independently, producing frequent corrections. EvoHIL integrates a learned velocity field into temporally coherent action chunks. All videos are shown at 3× speed.</p>
+        <div class="section-heading">
+          <span class="section-kicker">Control quality</span>
+          <h2>Action Smoothness</h2>
+          <p>HIL-SERL samples commands independently, producing frequent corrections. EvoHIL integrates a learned velocity field into temporally coherent action chunks. All videos are shown at 3× speed.</p>
+        </div>
         <figure class="research-figure">
           <img src="assets/images/smoothness.png" alt="Normalized-command smoothness metrics for flow and Gaussian policies" loading="lazy">
           <figcaption>The flow policy lowers first-difference action change by 44.5% on both push and stow, with less high-frequency command power.</figcaption>
@@ -160,8 +196,11 @@
 
     <section class="section section-tint" id="demos">
       <div class="container narrow centered">
-        <h2>Real-Robot Demonstrations</h2>
-        <p class="section-intro">Each experiment pairs a characteristic failure after an illumination change with repeated EvoHIL successes in the corresponding scene. All videos are shown at 3× speed.</p>
+        <div class="section-heading">
+          <span class="section-kicker">Qualitative evidence</span>
+          <h2>Real-Robot Demonstrations</h2>
+          <p>Each experiment pairs a characteristic failure after an illumination change with repeated EvoHIL successes in the corresponding scene. All videos are shown at 3× speed.</p>
+        </div>
 
         <article class="experiment demo-experiment">
           <div class="experiment-heading"><div><span class="robot-tag">Franka FR3</span><h3>RAM Insertion</h3></div><p>Precision insertion under visual shift.</p></div>
@@ -216,7 +255,7 @@
     <section class="section" id="scope">
       <div class="container narrow centered">
         <h2>Evaluation Scope</h2>
-        <p class="scope-note">The experiments support targeted adaptation to a predefined family of illumination changes. Unless noted otherwise, each reported point summarizes 30 rollouts of one selected policy from one training run. The page does not claim unrestricted zero-shot visual generalization or physical jerk guarantees.</p>
+        <p class="scope-note">The experiments support targeted adaptation to a predefined family of illumination changes. Each illumination-sweep curve point summarizes 30 rollouts of one selected policy, while every method–task entry in Table IV is averaged over 60 evaluation trials for a matched comparison. The page does not claim unrestricted zero-shot visual generalization or physical jerk guarantees.</p>
       </div>
     </section>
   </main>
