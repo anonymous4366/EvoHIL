@@ -314,21 +314,21 @@ td b { color: var(--navy-deep); }
 }
 .video-grid figcaption { display: flex; align-items: center; gap: 2px; }
 .label {
-  margin-right: 6px;
-  padding: 2px 7px;
-  border: 1px solid var(--line-strong);
-  border-radius: 1px;
-  color: #4f5961;
-  background: #f1f2f2;
-  font-size: .68rem;
-  font-weight: 750;
-  letter-spacing: .035em;
-  line-height: 1.45;
-  text-transform: uppercase;
+  margin-right: 7px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  color: inherit;
+  background: transparent;
+  font-size: inherit;
+  font-weight: 700;
+  letter-spacing: inherit;
+  line-height: inherit;
+  text-transform: none;
 }
-.label-baseline { color: #515a61; border-color: #c4c9cc; background: #f1f2f2; }
-.label-evo { color: #314f62; border-color: #9eafb9; background: #edf2f4; }
-.label-failure { color: #625955; border-color: #bcb4b0; background: #f3f1f0; }
+.label-baseline,
+.label-evo,
+.label-failure { color: inherit; background: transparent; }
 .demo-experiment:first-of-type { margin-top: 38px; }
 
 .scope-note {
