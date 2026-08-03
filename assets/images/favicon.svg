@@ -1,4 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="16" fill="#0d1714"/>
-  <path d="M18 15h31v8H28v7h18v8H28v7h22v8H18z" fill="#7de0b4"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">EvoHIL evolutionary E mark</title>
+  <style>
+    .structure { stroke: #293e4d; }
+    .trajectory { stroke: #82939f; }
+    .node { fill: #293e4d; }
+    @media (prefers-color-scheme: dark) {
+      .structure { stroke: #dbe3e7; }
+      .trajectory { stroke: #8fa4b1; }
+      .node { fill: #dbe3e7; }
+    }
+  </style>
+  <g fill="none" stroke-linecap="square" stroke-linejoin="miter">
+    <path class="structure" d="M14 10v44M14 13h19M14 32h26M14 51h33" stroke-width="5.5"/>
+    <path class="trajectory" d="M36 13c2 7 5 13 8 19s6 13 8 19" stroke-width="2.5"/>
+  </g>
+  <circle class="node" cx="36" cy="13" r="3.5"/>
+  <circle class="node" cx="44" cy="32" r="4.25"/>
+  <circle class="node" cx="52" cy="51" r="4.75"/>
 </svg>
